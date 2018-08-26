@@ -1,0 +1,15 @@
+- name: install tmux
+  package:
+    name: tmux
+    state: latest
+
+- name: clone config file
+  git:
+    repo: https://github.com/shfshanyue/tmux-config.git
+    dest: ~/Documents/tmux-config
+
+- name: copy config file
+  copy:
+    src: ~/Documents/tmux-config/.tmux.conf
+    dest: ~/.tmux.conf
+    remote_src: yes
