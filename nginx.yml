@@ -1,0 +1,4 @@
+- hosts: wall
+  roles:
+    - role: jdauphant.nginx
+      nginx_official_repo: True
