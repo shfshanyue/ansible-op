@@ -1,7 +1,29 @@
+- name: prepare
+  yum:
+    name: "{{item}}"
+  with_items:
+    - automake  # asdf
+    - libevent-devel
+    - ncurses-devel
+    - glibc-static
+
 - name: install tmux
-  package:
-    name: tmux
-    state: latest
+  git:
+    repo: https://github.com/tmux/tmux.git
+    dest: ~/Documents/tmux
+    version: 2.8
+
+- name: make tmux
+  shell: sh autogen.sh && ./configure && make
+  args:
+    chdir: ~/Documents/tmux/
+
+- name: copy tmux
+  copy:
+    src: ~/Documents/tmux/tmux
+    dest: /usr/bin/tmux
+    remote_src: yes
+    mode: 0755
 
 - name: clone config file
   git:
@@ -13,3 +35,5 @@
     src: ~/Documents/tmux-config/.tmux.conf
     dest: ~/.tmux.conf
     remote_src: yes
+
+    
