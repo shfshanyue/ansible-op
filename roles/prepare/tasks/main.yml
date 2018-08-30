@@ -1,0 +1,14 @@
+- name: add epel, git
+  yum:
+    name: "{{item}}"
+    state: latest
+  with_items:
+    - epel
+    - git
+    - bash-completion
+
+- name: set -o vi
+  lineinfile:
+    path: ~/.bashrc
+    regexp: "^set -o vi$"
+    line: "set -o vi"
