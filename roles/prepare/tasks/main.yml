@@ -3,12 +3,20 @@
     name: "{{item}}"
     state: latest
   with_items:
-    - epel
+    - epel-release
     - git
     - bash-completion
+    - autojump.noarch
+  ignore_errors: true
 
 - name: set -o vi
   lineinfile:
     path: ~/.bashrc
     regexp: "^set -o vi$"
     line: "set -o vi"
+
+- name: vi -> vim
+  lineinfile:
+    path: ~/.bashrc
+    regexp: "^alias vi='vim'$"
+    line: "alias vi='vim'"
