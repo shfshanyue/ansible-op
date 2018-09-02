@@ -1,0 +1,5 @@
+- name: copy minikube
+  copy:
+    src: minikube
+    dest: /usr/local/bin/
+    mode: 0755
