@@ -1,0 +1,12 @@
+- name: add yum utils
+  yum:
+    name: yum-utils
+    state: latest
+
+- name: add docker repo
+  shell: yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
+
+- name: download docker ce
+  yum:
+    name: docker-ce
+    state: latest
