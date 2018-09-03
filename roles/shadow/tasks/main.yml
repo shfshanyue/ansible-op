@@ -1,0 +1,38 @@
+- name: install pip
+  yum:
+    name: python-pip
+
+- name: install shadowsocks
+  pip:
+    name: shadowsocks
+
+- name: install shadowsocks
+  pip:
+    name: shadowsocks
+
+- name: config shadowsocks
+  template:
+    src: config.j2
+    dest: /etc/shadowsocks.json
+
+- name: start shadowsocks
+  shell: nohup sslocal -c /etc/shadowsocks.json &
+
+
+- name: http_proxy
+  lineinfile:
+    path: ~/.bashrc
+    regexp: "^export http_proxy"
+    line: "export http_proxy=socks5://localhost:10010"
+
+- name: https_proxy
+  lineinfile:
+    path: ~/.bashrc
+    regexp: "^export https_proxy"
+    line: "export https_proxy=socks5://localhost:10010"
+
+- name: no_proxy
+  lineinfile:
+    path: ~/.bashrc
+    regexp: "^export no_proxy"
+    line: "export no_proxy='mirrors.aliyun.com, mirrors.cloud.aliyuncs.com, mirrors.tencentyun.com'"
