@@ -18,5 +18,5 @@
 - name: vi -> vim
   lineinfile:
     path: ~/.bashrc
-    regexp: "^alias vi='vim'$"
-    line: "alias vi='vim'"
+    regexp: "^alias vim='vi'$"
+    line: "alias vim='vi'"
