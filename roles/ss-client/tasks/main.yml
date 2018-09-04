@@ -35,4 +35,4 @@
   lineinfile:
     path: ~/.bashrc
     regexp: "^export no_proxy"
-    line: "export no_proxy='mirrors.aliyun.com, mirrors.cloud.aliyuncs.com, mirrors.tencentyun.com'"
+    line: "export no_proxy='mirrors.aliyun.com, mirrors.cloud.aliyuncs.com, mirrors.tencentyun.com, github.com'"

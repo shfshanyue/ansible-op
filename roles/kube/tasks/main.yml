@@ -1,0 +1,19 @@
+- name: install k8s repo
+  template:
+    src: kubernetes.repo.j2
+    dest: /etc/yum.repos.d/kubernetes.repo
+
+- name: setenforce 0
+  shell: setenforce 0
+  ignore_errors: true
+
+- name: install kubelet kubeadm kubectl
+  shell: yum install -y kubelet kubeadm kubectl --disableexcludes=kubernetes
+
+- name: start kubelet
+  service:
+    name: "{{item}}"
+    state: restarted
+  with_items:
+    - docker
+    - kubelet
