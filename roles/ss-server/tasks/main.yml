@@ -1,0 +1,9 @@
+- name: start docker
+  service:
+    name: docker
+
+- name: ss-server
+  shell: docker pull shadowsocks/shadowsocks-libev
+
+- name: ss-server
+  shell: docker run -d --name ss-server -p 10010:8388 -p 10010:8388/udp --restart always -e METHOD=aes-256-cfb -e PASSWORD={{PASSWORD}} shadowsocks/shadowsocks-libev:latest

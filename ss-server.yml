@@ -1,0 +1,3 @@
+- hosts: wall
+  roles:
+    - ss-server
