@@ -25,12 +25,22 @@
     remote_src: yes
     mode: 0755
 
-# - name: clone config file
-#   git:
-#     repo: https://github.com/shfshanyue/tmux-config.git
-#     dest: ~/Documents/tmux-config
 - name: clone config file
-  shell: git clone --single-branch https://github.com/shfshanyue/tmux-config.git
+  shell: git clone --single-branch https://github.com/shfshanyue/tmux-config.git ~/Documents/tmux-config
+  when: USE_ME
+
+- name: clone config file (from .tmux)
+  git:
+    repo: https://github.com/gpakosz/.tmux.git
+    dest: ~/Documents/tmux-config
+  when: not USE_ME
+
+- name: copy config file (from .tmux)
+  copy:
+    src: ~/Documents/tmux-config/.tmux.conf.local
+    dest: ~/.tmux.conf.local
+    remote_src: yes
+  when: not USE_ME
 
 - name: copy config file
   copy:
@@ -38,4 +48,7 @@
     dest: ~/.tmux.conf
     remote_src: yes
 
-    
+- name: delete tmux-config 
+  file:
+    name: ~/Documents/tmux-config
+    state: absent
