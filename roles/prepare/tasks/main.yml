@@ -7,6 +7,7 @@
     - git
     - bash-completion
     - autojump.noarch
+    - python-devel
   ignore_errors: true
 
 - name: set -o vi

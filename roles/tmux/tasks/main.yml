@@ -2,7 +2,7 @@
   yum:
     name: "{{item}}"
   with_items:
-    - automake  # asdf
+    - automake
     - libevent-devel
     - ncurses-devel
     - glibc-static
@@ -25,10 +25,12 @@
     remote_src: yes
     mode: 0755
 
+# - name: clone config file
+#   git:
+#     repo: https://github.com/shfshanyue/tmux-config.git
+#     dest: ~/Documents/tmux-config
 - name: clone config file
-  git:
-    repo: https://github.com/shfshanyue/tmux-config.git
-    dest: ~/Documents/tmux-config
+  shell: git clone --single-branch https://github.com/shfshanyue/tmux-config.git
 
 - name: copy config file
   copy:
