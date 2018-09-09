@@ -1,0 +1,20 @@
+- name: install pip
+  register: pip
+  yum:
+    name: python-pip
+  ignore_errors: true
+
+- name: get-pip
+  get_url:
+    url: https://bootstrap.pypa.io/get-pip.py
+    dest: ~/get-pip.py
+  when: pip.failed
+
+- name: install pip
+  shell: python ~/get-pip.py
+  when: pip.failed
+
+- name: upgrade pip
+  pip:
+    name: pip
+    state: latest

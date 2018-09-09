@@ -10,6 +10,10 @@
     - python-devel
   ignore_errors: true
 
+- name: add docker.py
+  pip:
+    name: docker
+
 - name: set -o vi
   lineinfile:
     path: ~/.bashrc
