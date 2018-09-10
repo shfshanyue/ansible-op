@@ -1,0 +1,7 @@
+- name: install mongo
+  docker_container:
+    name: mongo
+    image: mongo
+    state: started
+    ports:
+      - "27017:27017/tcp"
