@@ -1,0 +1,6 @@
+- name: get node
+  shell: curl --silent --location https://rpm.nodesource.com/setup_8.x | sudo bash -
+
+- name: install node
+  yum:
+    name: nodejs

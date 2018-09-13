@@ -10,6 +10,9 @@
 
 使用 `register` 来监听当前任务的执行情况，使用 `when` 设定条件。参考 []()
 
+### 为什么使用 git，file 等模块比直接执行 shell 要好些
+
+git，file 能够更好地满足幂等性
 
 ## ansible 注意点
 
