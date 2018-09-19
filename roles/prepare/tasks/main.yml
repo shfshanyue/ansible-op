@@ -25,3 +25,9 @@
     path: ~/.bashrc
     regexp: "^alias vim='vi'$"
     line: "alias vim='vi'"
+
+- name: C-l -> clear
+  lineinfile:
+    path: ~/.bashrc
+    regexp: "clear-screen"
+    line: bind -m vi-insert "\C-l":clear-screen
