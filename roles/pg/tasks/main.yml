@@ -1,3 +1,6 @@
+- name: create pgdata volume
+  shell: docker volume create pgdata
+
 - name: install postgres
   docker_container:
     name: postgres
@@ -5,6 +8,8 @@
     state: started
     ports:
       - "5432:5432/tcp"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
 
 - name: pgcli
   pip:
