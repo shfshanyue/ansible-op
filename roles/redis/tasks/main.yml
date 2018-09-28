@@ -1,0 +1,12 @@
+- name: create redis volume
+  shell: docker volume create redis-data
+
+- name: install redis
+  docker_container:
+    name: redis
+    image: redis
+    state: started
+    ports:
+      - "6379:6379/tcp"
+    volumes:
+      - redis-data:/data
