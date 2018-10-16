@@ -31,3 +31,9 @@
     path: ~/.bashrc
     regexp: "clear-screen"
     line: bind -m vi-insert "\C-l":clear-screen
+
+- name: LANG=
+  lineinfile:
+    path: ~/.bashrc
+    regexp: "export LANG"
+    line: export LANG=''
