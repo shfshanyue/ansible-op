@@ -8,6 +8,7 @@
     - bash-completion
     - autojump.noarch
     - python-devel
+    - bind-utils
   ignore_errors: true
 
 - name: add docker.py
