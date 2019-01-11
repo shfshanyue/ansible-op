@@ -9,6 +9,7 @@
     - autojump.noarch
     - python-devel
     - bind-utils
+    - jq
   ignore_errors: true
 
 - name: add docker.py
@@ -20,12 +21,6 @@
     path: ~/.bashrc
     regexp: "^set -o vi$"
     line: "set -o vi"
-
-- name: vi -> vim
-  lineinfile:
-    path: ~/.bashrc
-    regexp: "^alias vim='vi'$"
-    line: "alias vim='vi'"
 
 - name: C-l -> clear
   lineinfile:
