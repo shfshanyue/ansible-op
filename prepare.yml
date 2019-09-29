@@ -1,3 +1,3 @@
-- hosts: all
+- hosts: prod
   roles:
     - prepare

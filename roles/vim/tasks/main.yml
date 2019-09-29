@@ -6,11 +6,11 @@
 - name: make vim
   shell: make distclean && make && make install
   args:
-    chdir: ~/Documents/vim/src
+    chdir: ~/Documents/vim
 
 - name: clone config file
   git:
-    repo: git@github.com:shfshanyue/vim-config.git
+    repo: https://github.com/shfshanyue/vim-config.git
     dest: ~/.vim-config
 
 - name: copy config file

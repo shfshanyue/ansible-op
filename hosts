@@ -1,11 +1,17 @@
 [op]
 shanyue
-shanyue2
+shuifeng
+qq
+qi
+
+[prod]
+shanyue
+shuifeng
+
+[dev]
 shuifeng
 qi
 
 [ssr]
 wall
 
-[dev]
-op

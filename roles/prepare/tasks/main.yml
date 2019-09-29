@@ -6,15 +6,12 @@
     - epel-release
     - git
     - bash-completion
-    - autojump.noarch
     - python-devel
     - bind-utils
     - jq
+    - htop
+    - lsof
   ignore_errors: true
-
-- name: add docker.py
-  pip:
-    name: docker
 
 - name: set -o vi
   lineinfile:

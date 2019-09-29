@@ -27,8 +27,10 @@
     mode: 0755
 
 - name: clone config file
-  shell: git clone --single-branch https://github.com/shfshanyue/tmux-config.git ~/Documents/tmux-config
   when: USE_ME
+  git:
+    repo: https://github.com/shfshanyue/tmux-config.git 
+    dest: ~/Documents/tmux-config
 
 - name: clone config file (from .tmux)
   git:
