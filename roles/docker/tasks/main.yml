@@ -1,17 +1,41 @@
 - name: add yum utils
   yum:
-    name: yum-utils
+    name: "{{item}}"
     state: latest
+  with_items:
+    - yum-utils
+    - device-mapper-persistent-data
+    - lvm2
 
 - name: add docker repo -> aliyun
   shell: yum-config-manager --add-repo http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
   when: ansible_date_time.tz_offset == "+0800"
+  args:
+    creates: /etc/yum.repos.d/docker-ce.repo 
 
 - name: add docker repo -> offical
   shell: yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
   when: ansible_date_time.tz_offset != "+0800"
+  args:
+    creates: /etc/yum.repos.d/docker-ce.repo 
 
 - name: download docker ce
   yum:
-    name: docker-ce
-    state: latest
+    name: docker-ce-18.06.2.ce
+    state: installed
+
+- name: mkdire /etc/docker
+  file:
+    state: directory
+    path: /etc/docker
+
+- name: copy docker daemon
+  copy:
+    src: daemon.json
+    dest: /etc/docker/daemon.json
+    mode: 0755
+
+- name: restart docker
+  service:
+    name: docker
+    state: restarted
