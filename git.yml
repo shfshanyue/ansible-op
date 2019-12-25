@@ -1,0 +1,6 @@
+- hosts: qi
+  roles:
+    - role: geerlingguy.git
+      vars:
+        git_install_from_source: true
+        git_install_from_source_force_update: true
