@@ -1,16 +1,16 @@
-- name: add epel, git
+- name: Prepare packages
   yum:
-    name: "{{item}}"
-    state: latest
-  with_items:
-    - epel-release
-    - git
-    - bash-completion
-    - python-devel
-    - bind-utils
-    - jq
-    - htop
-    - lsof
+    name: "{{ packages }}"
+  vars:
+    packages:
+      - epel-release
+      - sysstat
+      - git
+      - bash-completion
+      - bind-utils
+      - jq
+      - htop
+      - lsof
   ignore_errors: true
 
 - name: set -o vi

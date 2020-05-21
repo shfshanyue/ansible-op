@@ -1,0 +1,9 @@
+- gantsign.golang
+- mdklatt.python3
+- geerlingguy.nodejs
+- jdauphant.nginx
+- geerlingguy.docker
+- mdklatt.tmpdir
+- geerlingguy.pip
+- davidwittman.redis
+- geerlingguy.git

@@ -1,0 +1,13 @@
+- hosts: dev
+  roles:
+    - role: geerlingguy.nodejs
+      vars:
+        nodejs_version: 12.x
+        nodejs_install_npm_user: root
+    # - role: mdklatt.python3
+    #   vars:
+    #     python3_pyenv: 3.8.3
+    - role: gantsign.golang
+      vars:
+        golang_mirror: https://mirrors.ustc.edu.cn/golang/
+        golang_gopath: $HOME/workspace-go
