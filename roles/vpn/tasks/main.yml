@@ -1,8 +1,0 @@
-- name: openvpn
-  docker_container:
-    image: kylemanna/openvpn
-    name: openvpn
-    volumes:
-      - "/data/openvpn/data:/etc/openvpn"
-    auto_remove: true
-    command: easyrsa build-client-full SHANYUE nopass

@@ -1,4 +1,4 @@
-- hosts: qi
+- hosts: dev
   roles:
     - role: geerlingguy.git
       vars:

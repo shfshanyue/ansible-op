@@ -1,15 +1,9 @@
-[op]
-shanyue
-shuifeng
-qq
-qi
-
 [prod]
 shanyue
 shuifeng
 
 [dev]
-shuifeng
+huawei
 qi
 
 [ssr]
