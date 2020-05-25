@@ -11,6 +11,7 @@
       - jq
       - htop
       - lsof
+      - rsync
   ignore_errors: true
 
 - name: set -o vi

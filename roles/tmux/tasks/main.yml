@@ -1,18 +1,17 @@
 - name: prepare
   yum:
-    name: "{{item}}"
-  with_items:
-    - gcc
-    - automake
-    - libevent-devel
-    - ncurses-devel
-    - glibc-static
+    name:
+      - gcc
+      - automake
+      - libevent-devel
+      - ncurses-devel
+      # - glibc-static
 
 - name: install tmux
   git:
     repo: https://github.com/tmux/tmux.git
     dest: ~/Documents/tmux
-    version: 2.8
+    version: "2.8"
 
 - name: make tmux
   shell: sh autogen.sh && ./configure && make
