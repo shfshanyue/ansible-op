@@ -6,8 +6,11 @@
 # 安装依赖
 $ ansible-galaxy install -r requirements.yml
 
-# 安装 playbook
+# 安装某一个 playbook
 $ ansible-playbook -i hosts git.yml
+
+# 指定某一台测试服务器，一键安装
+$ ansible-playbook -i hosts --limit=op prepare.yml git.yml tmux.yml vim.yml language.yml zsh.yml
 ```
 
 ## Q&A
@@ -30,9 +33,7 @@ $ ansible all -m setup
 $ ansible all -a pwd
 ```
 
-### 一个 task 如何根据条件执行
-
-添加参数 `when` 作为分支条件
+### 如何根据条件执行 Task
 
 ``` bash
 # 当在国内时，选择阿里云镜像
@@ -43,9 +44,9 @@ $ ansible all -a pwd
     creates: /etc/yum.repos.d/docker-ce.repo 
 ```
 
-### 如果一个 task 执行错误，如何忽略错误使它继续执行下去
+### 如何忽略错误使 Task 继续执行下去
 
-添加参数 `ignore_errors: true` 忽略错误
+`ignore_errors: true`
 
 
 ### 如何根据一个 task 的执行结果来决定是否执行其它 task
@@ -55,7 +56,3 @@ $ ansible all -a pwd
 ### 为什么使用 git，file 等模块比直接执行 shell 要好些
 
 git，file 能够更好地满足幂等性
-
-## ansible 注意点
-
-+ 在使用相关 ansible 模块前请先确认是否满足 requirements

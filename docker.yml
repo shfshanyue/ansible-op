@@ -4,3 +4,5 @@
       vars:
         docker_yum_repo_url: https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
         docker_yum_gpg_key: https://mirrors.aliyun.com/docker-ce/linux/centos/gpg
+        docker_install_compose: true
+

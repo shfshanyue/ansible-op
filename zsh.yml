@@ -1,0 +1,9 @@
+- hosts: dev
+  roles:
+    - role: gantsign.oh-my-zsh
+      vars:
+        users:
+          - username: root
+        oh_my_zsh_theme: simple
+        oh_my_zsh_plugins:
+          - git
