@@ -2,7 +2,9 @@
   roles:
     - role: geerlingguy.docker
       vars:
-        docker_yum_repo_url: https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
-        docker_yum_gpg_key: https://mirrors.aliyun.com/docker-ce/linux/centos/gpg
-        docker_install_compose: true
+        # docker_yum_repo_url: https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
+        # docker_yum_gpg_key: https://mirrors.aliyun.com/docker-ce/linux/centos/gpg
+        docker_install_compose_plugin: false
+        docker_compose_package: docker-compose-plugin
+        docker_compose_package_state: present
 

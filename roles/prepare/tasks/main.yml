@@ -1,8 +1,6 @@
-- name: Prepare packages
+- name: Prepare packages for yum
   yum:
-    name: "{{ packages }}"
-  vars:
-    packages:
+    name:
       - epel-release
       - sysstat
       - git
@@ -13,6 +11,21 @@
       - lsof
       - rsync
   ignore_errors: true
+  when: ansible_os_family == 'RedHat'
+
+- name: Prepare packages for apt
+  apt:
+    pkg:
+      - sysstat
+      - git
+      - bash-completion
+      - bind-utils
+      - jq
+      - htop
+      - lsof
+      - rsync
+  ignore_errors: true
+  when: ansible_os_family == 'Debian'
 
 - name: set -o vi
   lineinfile:

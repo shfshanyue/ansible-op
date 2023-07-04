@@ -1,3 +1,0 @@
-- hosts: dev
-  roles:
-    - ss-client

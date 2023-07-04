@@ -1,4 +1,4 @@
-- hosts: dev
+- hosts: all
   roles:
     - role: geerlingguy.git
       vars:
