@@ -3,8 +3,7 @@
     - role: geerlingguy.nodejs
       vars:
         nodejs_version: "18.x"
-        nodejs_install_npm_user: root
-    - role: gantsign.golang
-      vars:
-        golang_mirror: https://mirrors.ustc.edu.cn/golang/
-        golang_gopath: $HOME/workspace-go
+    # - role: gantsign.golang
+    #   vars:
+    #     golang_mirror: https://mirrors.ustc.edu.cn/golang/
+    #     golang_gopath: $HOME/workspace-go

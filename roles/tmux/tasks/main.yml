@@ -5,18 +5,20 @@
       - automake
       - libevent-devel
       - ncurses-devel
-      # - glibc-static
+  when: ansible_os_family == 'RedHat'
 
-- name: install tmux
+- name: install tmux on centos
   git:
     repo: https://github.com/tmux/tmux.git
     dest: ~/Documents/tmux
     version: "2.8"
+  when: ansible_os_family == 'RedHat'
 
 - name: make tmux
   shell: sh autogen.sh && ./configure && make
   args:
     chdir: ~/Documents/tmux/
+  when: ansible_os_family == 'RedHat'
 
 - name: copy tmux
   copy:
@@ -24,6 +26,11 @@
     dest: /usr/bin/tmux
     remote_src: yes
     mode: 0755
+  when: ansible_os_family == 'RedHat'
+
+- name: install tmux on debian
+  apt:
+    name: tmux
 
 - name: clone config file
   when: USE_ME
